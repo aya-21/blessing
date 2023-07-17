@@ -96,3 +96,6 @@
 
 https://www.figma.com/file/Ux1dI4u754JU94VobcWQ1a/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?type=design&node-id=0%3A1&mode=design&t=4TShkf9KYGVF3evf-1
 
+ER図
+
+[![Image from Gyazo](https://i.gyazo.com/572a2ff9970225b8367dc5b48224564a.png)](https://gyazo.com/572a2ff9970225b8367dc5b48224564a)
