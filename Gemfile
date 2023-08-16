@@ -70,6 +70,7 @@ gem 'rack'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'sqlite3', '~> 1.4' # <= 開発環境とテスト環境用として設定
 
     #RSpec関連
   gem 'rspec-rails'
@@ -99,3 +100,11 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# 本番環境用のgemグループを新しく作成しPostgresを指定
+# group :production do
+#   gem 'pg'
+# end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
