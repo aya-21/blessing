@@ -15,7 +15,8 @@
 # gem "pg"
 #
 default: &default
-  adapter: postgresql
+  adapter: sqlite3
+  database: db/development.sqlite3
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
@@ -23,7 +24,8 @@ default: &default
 
 development:
   <<: *default
-  database: blessing_development
+  adapter: sqlite3
+  database: db/test.sqlite3
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +59,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: blessing_test
+  adapter: sqlite3
+  database: db/test.sqlite3
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -79,8 +82,11 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+# 本番用のデータベースをPostgresqlに変更する
 production:
   <<: *default
-  database: blessing_production
-  username: blessing
-  password: <%= ENV["BLESSING_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+
