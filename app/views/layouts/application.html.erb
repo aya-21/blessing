@@ -7,10 +7,24 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <% if logged_in? %>
+      <%= render 'shared/header' %>
+    <% else %>
+      <%= render 'shared/before_login_header' %>
+    <% end %>
+
+    <% flash.each do |key, message| %>
+      <div class="flash-message <%= key %>">
+        <%= message %>
+      </div>
+    <% end %>
+
     <%= yield %>
+    <%# <%= render 'shared/footer' %>
   </body>
 </html>

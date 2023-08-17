@@ -43,7 +43,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-gem "sassc-rails"
+# gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -65,31 +65,18 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 
-group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
-end
-
-group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem "web-console"
-
-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
-
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
-end
+gem 'rack'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'sqlite3', '~> 1.4' # <= 開発環境とテスト環境用として設定
 
-  # # RSpec関連
-  # gem 'rspec-rails'
-  # gem 'factory_bot_rails'
-  # gem 'capybara'
-  # gem 'webdrivers'
+    #RSpec関連
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'capybara'
+  gem 'webdrivers'
 end
 
 group :development do
@@ -102,9 +89,9 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 
-  #  # Lintチェック
-  # gem 'rubocop', require: false
-  # gem 'rubocop-rails', require: false
+    # Lintチェック
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
 end
 
 group :test do
@@ -113,3 +100,11 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# 本番環境用のgemグループを新しく作成しPostgresを指定
+# group :production do
+#   gem 'pg'
+# end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
