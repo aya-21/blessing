@@ -10,7 +10,7 @@ gem "rails", "~> 7.0.6"
 gem "sprockets-rails"
 
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+# gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -102,9 +102,9 @@ group :test do
 end
 
 # 本番環境用のgemグループを新しく作成しPostgresを指定
-# group :production do
-#   gem 'pg'
-# end
+group :production do
+  gem 'pg'
+end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
