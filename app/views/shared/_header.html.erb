@@ -12,6 +12,9 @@
             <div class="dropdown-divider"></div>
             <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
 
+            <%= link_to 'イベント登録', new_event_path ,class: 'nav-link' %>
+            <%= link_to 'イベント一覧', events_path ,class: 'nav-link' %>
+
             <%# <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete %>
             <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
 
