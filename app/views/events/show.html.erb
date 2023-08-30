@@ -1,9 +1,24 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+    <div class="event-list">
       <h1><%= @event.event_name %></h1>
-      <p>日付: <%= @event.date_at %></p>
+      <p>日付: <%= @event.date_at.strftime('%Y年%m月%d日') %></p>
+        <div class="event-card">
+          <% @event.cards.each do |card| %>
+            <div class="event-card">
+              <% if card.card_image? %>
+                <%= image_tag card.card_image.url, class: "event-image", alt: "Image for #{@event.event_name}", size: '296x200' %>
+                <div>
+                  <%= link_to "ダウンロード", card.card_image.url, class: "download-btn", download: "" %>
+                  <hr>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       <%= link_to 'イベント一覧に戻る', events_path %>
     </div>
   </div>
 </div>
+
+
