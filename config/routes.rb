@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root 'static_pages#top'
 
   get 'login', to: 'user_sessions#new'
@@ -7,5 +6,6 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
 
   resources :users, only: %i[new create]
-  resources :events
+  resources :events, only: %i[new create index show]
+  resources :cards, only: %i[new create index show]
 end

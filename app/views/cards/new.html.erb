@@ -1,0 +1,37 @@
+<h1>Cards#new</h1>
+<p>Find me in app/views/cards/new.html.erb</p>
+
+<h3>カード作成</h3>
+
+<%= form_with(model: @card, url: cards_path, local: true, multipart: true) do |form| %>
+
+  <div>
+    <%= form.label :event_id, "イベントを選択" %>
+    <%= form.select :event_id, Event.all.collect { |event| [event.event_name, event.id] } %>
+  </div>
+
+
+  <div>
+    <%= form.radio_button :card_name, "card1", id: "card1-radio" %>
+    <%= form.label :card_name, "カード1" %>
+  </div>
+
+  <div>
+    <%= form.label :message, "メッセージ" %>
+    <%= form.text_area :message, rows: 2 %>
+  </div>
+
+    <!-- 画像アップロードフィールドを追加 -->
+  <div>
+    <%= form.label :card_image, "Card Image" %>
+    <%= form.file_field :card_image %>
+  </div>
+
+  <%= button_tag "カードを作成", type: "submit", class: "btn btn-primary" %>
+
+  <!-- ここに画像をプレビュー表示する部分 -->
+  <p>プレビュー</p>
+  <div id="template-image-1" class="hidden">
+    <%= image_tag "card1.png", size: "444x300", id: "preview-image" %>
+  </div>
+<% end %>

@@ -3,14 +3,12 @@
     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <h1>イベント一覧</h1>
       
-        <% @events.each do |event| %>
-          <div class="event-item mb-3">
-            <p><%= event.event_name %></p>
-            <p><%= event.date_at %></p>
-            <%= link_to '詳細', event %>
-            <hr>
-          </div>
-        <% end %>
+        <div class="event-list">
+          <% @events.each do |event| %>
+          <p><%= link_to event.event_name, event_path(event) %></p>
+          <p>日付: <%= event.date_at.strftime('%Y年%m月%d日') %></p>
+          <% end %>
+        </div>
       
     </div>
   </div>
