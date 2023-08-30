@@ -59,6 +59,9 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 
+# AWS S3設定用 キーを環境変数化する
+gem 'dotenv-rails'
+
 gem 'rack'
 
 group :development, :test do
