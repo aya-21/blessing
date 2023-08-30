@@ -31,3 +31,6 @@
 /config/master.key
 
 /db/test.sqlite3
+
+/app/uploaders/
+/public/uploads/
