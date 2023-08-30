@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_23_093259) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_23_094826) do
   create_table "cards", force: :cascade do |t|
     t.string "card_name"
     t.text "message"
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_093259) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.string "card_image"
+    t.integer "event_id"
   end
 
   create_table "events", force: :cascade do |t|
