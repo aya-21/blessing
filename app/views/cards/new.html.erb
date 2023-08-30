@@ -21,10 +21,17 @@
     <%= form.text_area :message, rows: 2 %>
   </div>
 
+    <!-- 画像アップロードフィールドを追加 -->
+  <div>
+    <%= form.label :card_image, "Card Image" %>
+    <%= form.file_field :card_image %>
+  </div>
+
   <%= button_tag "カードを作成", type: "submit", class: "btn btn-primary" %>
 
   <!-- ここに画像をプレビュー表示する部分 -->
+  <p>プレビュー</p>
   <div id="template-image-1" class="hidden">
-    <%= image_tag "card1.png", size: "320x200", id: "preview-image" %>
+    <%= image_tag "card1.png", size: "444x300", id: "preview-image" %>
   </div>
 <% end %>
