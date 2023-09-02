@@ -37,4 +37,4 @@
 
 /.env
 
-/credentials.yml.enc
+config/credentials.yml.enc
